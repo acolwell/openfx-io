@@ -19,11 +19,11 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout branch
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4.1.1
         with:
           submodules: recursive
       - name: Checkout SeExpr
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4.1.1
         with:
           repository: wdas/SeExpr
           ref: v1-2.11
@@ -51,7 +51,7 @@ jobs:
         run: |
           make -j2 CONFIG=debug SEEXPR_HOME=$PWD/SeExprBuild
       - name: Upload artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4.3.1
         with:
           name: openfx-io-build-ubuntu_22-release
           path: Bundle
@@ -76,7 +76,7 @@ jobs:
           ./verify_plugin_loads ${BINARY_PATH}/${BINARY_NAME}
 
       - name: Upload testing artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4.3.1
         with:
           name: openfx-io-build-ubuntu_22-testing
           path: TestingBundle
@@ -93,7 +93,7 @@ jobs:
 
     steps:
       - name: Checkout branch
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4.1.1
         with:
           submodules: recursive
 
@@ -131,7 +131,7 @@ jobs:
           make -j2 CONFIG=debug
 
       - name: Upload release artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4.3.1
         with:
           name: openfx-io-build-windows_latest-release
           path: Bundle
@@ -155,7 +155,7 @@ jobs:
           ./verify_plugin_loads ${BINARY_PATH}/${BINARY_NAME}
 
       - name: Upload testing artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4.3.1
         with:
           name: openfx-io-build-windows_latest-testing
           path: TestingBundle
