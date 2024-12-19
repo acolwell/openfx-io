@@ -10,6 +10,8 @@ on:
     paths-ignore:
       - LICENSE
       - README.md
+  schedule:
+    - cron:  '0 12 * * *'
 
 jobs:
   ubuntu_build:
